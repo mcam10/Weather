@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Weather</title>
+        <link rel="icon" href="/web-server/public/images/weather.png">
+        <meta name="description" content="">
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+    <body>
+        <div class="main-content">
+        {{>header}}
+        <p> Use this site to get the Weather</p>
+        <form> 
+            <input placeholder="Location">
+            <button>Search</button>
+        </form>
+        </div>
+        {{>footer}}
+         <script src="js/app.js" async defer></script>
+    </body>
+</html>
