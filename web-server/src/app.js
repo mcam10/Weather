@@ -5,6 +5,8 @@ const request = require('request')
 const path = require('path')
 const hbs = require('hbs')
 const app = express()
+// setting up env variable value
+const port = process.env.PORT || 3000
 
 // Express configuration
 const publicPath = path.join(__dirname,'../public')
@@ -83,7 +85,7 @@ app.get('*',(req,res) =>{   // setting up 404 page,
     })
 })
 
- app.listen(3000, () => {
-     console.log("server is running on port 3000") // this will display like logs... not to the user
+ app.listen(port, () => {
+     console.log(`server is running on port ${port}`) // this will display like logs... not to the user
  })//listen on a specific port
 
