@@ -11,7 +11,8 @@ const forecast = ( latitude,longitude,callback) => {
 		    callback('Unable to find location, Please Try Again',undefined)
 		}
 		try {
-			callback(undefined, `${body.minutely.summary} It is currently ${body.currently.temperature} degrees out. There is a ${body.currently.precipProbability} % chance of rain.`)
+			callback(undefined, `${body.minutely.summary} It is currently ${body.currently.temperature} degrees out. There is a ${body.currently.precipProbability} % chance of rain.
+			  The Humidity is ${body.currently.humidity * 100} %.`)
 
 		}
 	    catch(TypeError) {
