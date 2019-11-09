@@ -1,3 +1,4 @@
+
 const express = require('express')
 const geocode = require('./utils/geocode')
 const forecast = require('./utils/forecast')
@@ -5,6 +6,10 @@ const request = require('request')
 const path = require('path')
 const hbs = require('hbs')
 const app = express()
+const dotenv = require('dotenv')
+// load env 
+dotenv.config({path : './config.env'});
+
 // setting up env variable value
 const port = process.env.PORT || 3000
 
@@ -19,15 +24,12 @@ app.set('view engine', 'hbs');
 app.set('views', viewsPath)
 hbs.registerPartials(partialPath)
 
-
-
 app.get('',(req,res) => {
     res.render('weather',{
         title: 'The Weather App',
         name: 'Malik Cameron'
     })
 }) 
-
 
 app.get('/about', (req,res) =>{
     res.render('index',{
@@ -36,7 +38,6 @@ app.get('/about', (req,res) =>{
     })
 })
 
-
 app.get('/help', (req,res) =>{
     res.render('help',{
         title: 'Help page',
@@ -44,8 +45,6 @@ app.get('/help', (req,res) =>{
         message: 'if require assistance, please contact this number 888-888-8888'
     })
 })
-
-
 
 
 app.get('/help/*',(req,res) =>{
@@ -78,7 +77,6 @@ app.get('/weather',(req,res)=>{
  })
 })
         
-
 app.get('*',(req,res) =>{   // setting up 404 page, 
     res.render('404',{
         message: "Page Not Found"
