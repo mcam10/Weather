@@ -12,6 +12,15 @@ weatherForm.addEventListener('submit',(e)=>{
 
     message.textContent = 'loading...'
     message2.textContent = ''
+   
+
+// everytime user submits an entry, reset form
+    
+document.getElementById('search-city').reset()
+    
+
+
+// make request when form is submitted
 
     fetch('weather?address='+destination).then((response)=>{
     response.json().then((data)=>{
