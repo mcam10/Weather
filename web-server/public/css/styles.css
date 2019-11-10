@@ -5,12 +5,12 @@ body{
 	margin: 0 auto;
 	padding: 0 16px;
 
-
-
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
+	background-color: plum;
 }
+
 
 .main-content{
 	flex-grow: 1;
@@ -41,12 +41,14 @@ header a{
 }
 
 .portrait{
-	width: 250px;
+	width: 550px;
+	background-image: cross-fade();
 }
 
 input{
 	border: 1px solid #cccccc;
 	padding: 8px;
+
 }
 
 button{
@@ -57,4 +59,15 @@ button{
 	padding: 8px;
 }
 
+#404{
+	height: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	max-width: 100%;
+}
+
+#message-1{
+	color:blue;
+}
 
