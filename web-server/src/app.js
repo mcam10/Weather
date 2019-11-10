@@ -41,19 +41,11 @@ app.get('/about', (req,res) =>{
 app.get('/help', (req,res) =>{
     res.render('help',{
         title: 'Help page',
-        name: 'malik cameron',
+        name: 'Malik cameron',
         message: 'if require assistance, please contact this number 888-888-8888'
     })
 })
 
-
-app.get('/help/*',(req,res) =>{
-    res.render('404',{
-        message: "Help article not found?",
-        name: 'Malik cameron'
-        
-    })
-})
 
 app.get('/weather',(req,res)=>{
     if (!req.query.address){
@@ -61,6 +53,15 @@ app.get('/weather',(req,res)=>{
             error: 'You Must Provide a City to Search'
         })
     }
+
+
+app.get('/help/*',(req,res) =>{
+        res.render('404',{
+            message: "Help article not found?",
+            name: 'Malik cameron'
+            
+        })
+    })
 
     geocode(req.query.address,(error, {latitude, longitude, location} = {}) =>{
         if ( error){
@@ -83,6 +84,16 @@ app.get('*',(req,res) =>{   // setting up 404 page,
     res.render('404',{
         message: "Page Not Found"
     })
+})
+
+// handling bad input for an endpoint
+
+app.get('/weather/*',(req,res)=>{
+    res.render('404',{
+        message: "Web Page not Found, Did you mean /weather?",
+        name: "Malik Cameron"
+    })
+
 })
 
  app.listen(port, () => {
