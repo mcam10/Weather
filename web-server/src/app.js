@@ -96,6 +96,14 @@ app.get('/weather/*',(req,res)=>{
 
 })
 
+app.get('/about/*',(req,res)=>{
+    res.render('404',{
+        message: "Web Page not Found, Did you mean /About?",
+        name: "Malik Cameron"
+    })
+
+})
+
  app.listen(port, () => {
      console.log(`server is running on port ${port}`) // this will display like logs... not to the user
  })//listen on a specific port
