@@ -1,7 +1,7 @@
 const expect = require('chai').expect;
 const request = require('request');
 
-// testing each endpoint
+// testing each endpoint for 200 response
 
 it('Weather Page Content',function(done){
     request('http://localhost:3000/weather',function(error,response,body){
