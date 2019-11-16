@@ -3,7 +3,7 @@ const request = require('request');
 
 // testing each endpoint for 200 response
 
-it('Weather Page Content',function(done){
+it('Weather Page Response',function(done){
     request('http://localhost:3000/weather',function(error,response,body){
         expect(response.statusCode).to.equal(200);
         done();
@@ -23,3 +23,16 @@ it('Help Page Content',function(done){
         done();
     });
 });
+
+
+describe('Status and content of Weather', function() {
+        it('status', function(done){
+            request('http://localhost:3000/weather?address=bronx', function(error, response, body) {
+                expect(response.statusCode).to.equal(200);
+                expect(response).to.be.an('object')
+                done();
+            });
+        });
+    });
+
+
